@@ -112,7 +112,8 @@ export default function Scene() {
         { showCard && 
         
         <Html 
-          center
+          // center
+          position={[0,1,0]}
         >
            
           <Box
@@ -123,19 +124,20 @@ export default function Scene() {
               zIndex: 9999, 
               backgroundColor: 'white',
               padding: 1,
-              borderRadius: 3
+              borderRadius: 3,
+              opacity:0.9
             }}
           >
-            <Card sx={{maxWidth: 345, boxShadow:3}}>
+            <Card sx={{maxWidth: 350, boxShadow:3}}>
                 {/* <CardContent>
                   <Typography>遊客站在橋上可以欣賞壯麗的風景</Typography>
                 </CardContent> */}
                 <CardHeader
-                  avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      R
-                    </Avatar>
-                  }
+                  // avatar={
+                  //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                  //     R
+                  //   </Avatar>
+                  // }
                   action={
                     <IconButton aria-label="settings">
                       <MoreVertIcon />
@@ -147,7 +149,7 @@ export default function Scene() {
                   <CardMedia 
                     component="img"
                     height="110"
-                    image=""
+                    image="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-01-00.png?raw=true"
                     alt="Bridge"
                   />
                   <CardContent>
@@ -190,6 +192,10 @@ export default function Scene() {
         }
               
       {/* </mesh> */}
+
+
+
+      
 
 
 
