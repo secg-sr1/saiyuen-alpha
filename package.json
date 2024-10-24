@@ -24,7 +24,10 @@
     "aframe-look-at-component": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "three": "^0.169.0"
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "three": "^0.169.0",
+    "vite-plugin-top-level-await": "^1.4.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
