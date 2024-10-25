@@ -5,7 +5,22 @@ import { useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Html } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-import { Card, CardHeader, CardMedia, CardActions, Collapse, CardContent, Typography, Box, Avatar, IconButton } from '@mui/material';
+import { Card, 
+        CardHeader, 
+        CardMedia, 
+        CardActions, 
+        Collapse, 
+        CardContent, 
+        Typography, 
+        Box, 
+        Avatar, 
+        IconButton, 
+        Accordion, 
+        AccordionActions, 
+        AccordionSummary, 
+        AccordionDetails,
+        Button  
+    } from '@mui/material';
 
 
 import { red } from '@mui/material/colors';
@@ -128,7 +143,7 @@ export default function Scene() {
               opacity:0.9
             }}
           >
-            <Card sx={{maxWidth: 350, boxShadow:3}}>
+            <Card sx={{width: 350, boxShadow:3}}>
                 {/* <CardContent>
                   <Typography>遊客站在橋上可以欣賞壯麗的風景</Typography>
                 </CardContent> */}
@@ -146,11 +161,22 @@ export default function Scene() {
                   title="Saiyen"
                   subheader="Bridge"
                 />
-                  <CardMedia 
+                  {/* <CardMedia 
                     component="img"
                     height="110"
                     image="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-01-00.png?raw=true"
                     alt="Bridge"
+                  /> */}
+                  <CardMedia 
+                    component="iframe"
+                    src="https://www.youtube.com/embed/4FOmQkFgicQ?si=wVke1zASp0fnVN3K"
+                    title="YouTube video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    sx={{ height: 200 }}
+                    autoplay
+                  
                   />
                   <CardContent>
                     {/* <Typography sx={{fontWeight:200, fontSize:"16px"}}>

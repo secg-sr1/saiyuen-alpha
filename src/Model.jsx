@@ -1,6 +1,33 @@
 import { Canvas } from '@react-three/fiber';
 import Scene from './Scene.jsx';
-import { Card, CardHeader, CardMedia, CardActions, Collapse, CardContent, Typography, Box, Avatar, IconButton, Stack, Chip, FormGroup, FormControlLabel, Checkbox, SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
+import { Card, 
+        CardHeader, 
+        CardMedia, 
+        CardActions, 
+        Collapse, 
+        CardContent, 
+        Typography, 
+        Avatar, 
+        IconButton, 
+        Stack, 
+        Chip, 
+        FormGroup, 
+        FormControlLabel, 
+        Checkbox, 
+        SpeedDial, 
+        SpeedDialAction, 
+        SpeedDialIcon, 
+        FormControl, 
+        FormLabel, 
+        RadioGroup, 
+        Radio, 
+        Accordion, 
+        AccordionActions, 
+        AccordionSummary, 
+        AccordionDetails,
+        Button,
+        Box
+    } from '@mui/material';
 
 
 import { red } from '@mui/material/colors';
@@ -14,7 +41,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 
-
+// import RowRadioButtonsGroup from './RowRadioButtonsGroup.jsx';
 
 const actions = [
   // { icon: <FileCopyIcon />, name: 'Copy' },
@@ -45,24 +72,29 @@ export default function Model() {
       />
 
 
-      
-        <SpeedDial
-          ariaLabel='SpeedDial basic example'
-          sx={{ position: 'absolute', bottom:16, right:16, zIndex: 9999}}
-          icon={<SpeedDialIcon />}
+      <div style={{position:'absolute', top:'2%', left:'2%', width:'30%', zIndex:9999}}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            Accordion 1
+          </AccordionSummary>
+          <AccordionDetails>
+            Hey hey hello friend
+          </AccordionDetails>
+        </Accordion>
+      </div>
 
-        >
-          { actions.map((action) => (
-            <SpeedDialAction 
-              key={action.name}
-              icon={action.icon}
-              tooltipTitle={action.name}
-            />
-          ))
 
-          }
-        </SpeedDial>
+        
+
+
       
+        
+
+        
 
 
 

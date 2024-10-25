@@ -314,3 +314,108 @@ export default function Scene() {
     </>
   );
 }
+
+
+//////////////////
+
+
+import * as React from 'react';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
+export default function BasicChips() {
+  return (
+    <Stack direction="row" spacing={1}>
+      <Chip label="Chip Filled" />
+      <Chip label="Chip Outlined" variant="outlined" />
+    </Stack>
+  );
+}
+
+
+////////////////////////
+
+import * as React from 'react';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
+export default function CheckboxLabels() {
+  return (
+    <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+      <FormControlLabel required control={<Checkbox />} label="Required" />
+      <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+    </FormGroup>
+  );
+}
+
+
+
+//////////////////////////////
+
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy' },
+  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <PrintIcon />, name: 'Print' },
+  { icon: <ShareIcon />, name: 'Share' },
+];
+
+export default function BasicSpeedDial() {
+  return (
+    <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+      <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
+    </Box>
+  );
+}
+
+7//////////////////////
+
+
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+
+function VideoCard() {
+  return (
+    <Card sx={{ maxWidth: 500 }}>
+      <CardMedia
+        component="video"
+        src="path/to/your/video.mp4"
+        controls // Adds video controls like play, pause, volume, etc.
+        autoPlay
+        loop
+        muted
+      />
+      <CardContent>
+        <Typography variant="h5">Video Title</Typography>
+        <Typography variant="body2" color="text.secondary">
+          This is a video description.
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default VideoCard;
