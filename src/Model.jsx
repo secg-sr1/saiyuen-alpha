@@ -172,7 +172,7 @@ export default function Model() {
         sm:'40%',
         md:'30%',
         lg:'30%'},
-        height:650, 
+        // height:650, 
         zIndex:9999,
         overflowY: 'auto',
         overflowX: 'hidden',
@@ -224,7 +224,7 @@ export default function Model() {
                     chipClickInstructions && 
                       <CardMedia 
                       component="img"
-                      src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=980&q=75"
+                      src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02.png?raw=true"
                       sx={{ height: 200 }}
                       />
                   }
