@@ -34,6 +34,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { useStore } from './store/useStore';
+
 
 
 const ExpandMore = styled((props) => {
@@ -66,6 +68,10 @@ const ExpandMore = styled((props) => {
 
 
 export default function Scene() {
+
+  const showBase = useStore(state => state.showBase)
+  const showStructure = useStore(state => state.showStructure)
+
   const cameraRef = useRef();
   const videoRef = useRef();
   const [ showCard, setShowCard ] = useState(false);
@@ -73,6 +79,7 @@ export default function Scene() {
 
   const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base.glb?v=1729731166335');
   const gltfBridge = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-structure.glb?v=1729731146544');
+  const gltfHandrail = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-handrail.glb?v=1729900147243');
 
 
 
@@ -107,6 +114,8 @@ export default function Scene() {
   }
 
 
+  console.log(showBase, 'scene')
+
   return (
     <>
       <PerspectiveCamera ref={cameraRef} />
@@ -115,8 +124,9 @@ export default function Scene() {
       <directionalLight position={[1, 1, 1]} intensity={1.5} />
       <ambientLight intensity={0.5} />
 
-      <primitive object={gltf.scene} scale={[0.2, 0.2, 0.2]} onPointerDown={handleBridgeClick} />
-      <primitive object={gltfBridge.scene} scale={[0.2, 0.2, 0.2]} />
+      { showBase && <primitive object={gltf.scene} scale={[0.2, 0.2, 0.2]} onPointerDown={handleBridgeClick} /> }
+      { showBase && <primitive object={gltfHandrail.scene} scale={[0.2, 0.2, 0.2]} /> }
+      { showStructure && <primitive object={gltfBridge.scene} scale={[0.2, 0.2, 0.2]} />}
 
 
       {/* <mesh position={[0, 0.5, -1]} onPointerDown={handleSphereClick}>

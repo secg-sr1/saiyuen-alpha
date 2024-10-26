@@ -1,3 +1,5 @@
+import  { styled } from '@mui/material/styles';
+import { useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Scene from './Scene.jsx';
 import { Card, 
@@ -26,8 +28,14 @@ import { Card,
         AccordionSummary, 
         AccordionDetails,
         Button,
-        Box
+        Box,
+        useMediaQuery
     } from '@mui/material';
+
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+
 
 
 import { red } from '@mui/material/colors';
@@ -43,6 +51,12 @@ import PrintIcon from '@mui/icons-material/Print';
 
 // import RowRadioButtonsGroup from './RowRadioButtonsGroup.jsx';
 
+import SpeedDialWithAccordion from './SpeedDialWithAccordion.jsx';
+
+import RowRadioButtonsGroup from './RowRadioButtonsGroup.jsx';
+
+import { useStore } from './store/useStore.jsx';
+
 const actions = [
   // { icon: <FileCopyIcon />, name: 'Copy' },
   // { icon: <SaveIcon />, name: 'Save'},
@@ -52,9 +66,71 @@ const actions = [
 ]
 
 
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props; 
+  return <IconButton {...other} />
+})(({theme}) => ({
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+
+  variants: [
+    {
+      props: ({ expand }) => !expand, 
+      style: {
+        transform: 'rotate(0deg)'
+      },
+    },
+    {
+      props: ({ expand }) => !!expand, 
+      style: {
+        transform: 'rotate(180deg)',
+      },
+    },
+  ],
+
+}))
+
+
 export default function Model() {
+
+  const setShowBase = useStore(state => state.setShowBase)
+  const setShowStructure = useStore(state => state.setShowStructure)
+  const [expanded, setExpanded ] = useState(false);
+
+  const handleCheckboxChangeBase = (event) => {
+    setShowBase(event.target.checked)
+  }
+
+  const handleCheckboxChangeStructure = (event) => {
+    setShowStructure(event.target.checked)
+    
+  }
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  }
+
+
+
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 834,
+        md: 1080,
+        lg: 1920,
+        xl: 2060,
+      },
+    },
+  });
+
+
   return (
-    <>
+
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
       {/* Video background element */}
       <video
         id="videoBackground"
@@ -72,36 +148,94 @@ export default function Model() {
       />
 
 
-      <div style={{position:'absolute', top:'2%', left:'2%', width:'30%', zIndex:9999}}>
+      <Box sx={{position:'absolute', bottom:'2%', right:'2%', width: {
+        xs:'96%',
+        sm:'40%',
+        md:'30%',
+        lg:'30%'
+        
+      }, zIndex:9999}}>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            Accordion 1
+            Saiyuen Bridge
           </AccordionSummary>
           <AccordionDetails>
-            Hey hey hello friend
+            <FormControlLabel control={<Checkbox defaultChecked /> } onChange={handleCheckboxChangeBase} label="Base" />
+            <FormControlLabel control={<Checkbox defaultChecked />} onChange={handleCheckboxChangeStructure} label="Structure" />
+            {/* <Typography>Click the floor of the bridge</Typography> */}
           </AccordionDetails>
         </Accordion>
-      </div>
+
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            Play video
+          </AccordionSummary>
+          <AccordionDetails>
+            <Card>
+              <CardHeader
+                action={
+                  <IconButton >
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title="Saiyuen"
+                subheader="Bridge"
+              />
+                <CardMedia 
+                    component="iframe"
+                    src="https://www.youtube.com/embed/4FOmQkFgicQ?si=wVke1zASp0fnVN3K"
+                    title="YouTube video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    sx={{ height: 200 }}
+                    autoplay
+                  
+                  />
 
 
-        
+                  <CardActions disableSpacing>
+                    <IconButton>
+                      <FavoriteIcon />
+                    </IconButton>
 
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
 
-      
-        
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      arial-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
 
-        
+                  </CardActions>
 
+                  <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      <CardContent>
+                        <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                         - 象徵著過去與未來的連接。
+                        </Typography>
+                      </CardContent>
+                  </Collapse>
 
+            </Card>
+          </AccordionDetails>
+        </Accordion>
 
+      </Box>
 
-      
-
-
+      {/* < SpeedDialWithAccordion/> */}
 
 
       {/* Canvas for 3D rendering */}
@@ -114,6 +248,6 @@ export default function Model() {
       >
         <Scene />
       </Canvas>
-    </>
+    </ThemeProvider>
   );
 }

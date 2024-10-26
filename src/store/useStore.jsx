@@ -10,7 +10,13 @@ export let useStore = create((set, get) => ({
     setValue: (newValue) => set({ value: newValue }),
 
     showTrace: false, 
-    setShowTrace: (show) => set({ showTrace: show })
+    setShowTrace: (show) => set({ showTrace: show }),
+
+    showBase:true,
+    setShowBase: (showbase) => set({ showBase: showbase}),
+
+    showStructure:true,
+    setShowStructure: (showstructure) => set({ showStructure: showstructure})
 
 
 }))

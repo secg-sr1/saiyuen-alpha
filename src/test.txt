@@ -199,3 +199,131 @@ export default function RecipeReviewCard() {
     </Card>
   );
 }
+
+
+//////////////////////////////////////
+
+import React, { useState } from 'react';
+import {
+  SpeedDial,
+  SpeedDialAction,
+  SpeedDialIcon,
+  Dialog,
+  DialogContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  IconButton,
+  Box,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SettingsIcon from '@mui/icons-material/Settings';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+
+export default function SpeedDialWithAccordion() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const actions = [
+    { icon: <FileCopyIcon />, name: 'Copy' },
+    { icon: <SaveIcon />, name: 'Save' },
+    { icon: <PrintIcon />, name: 'Print' },
+    { icon: <ShareIcon />, name: 'Share' },
+  ];
+
+  return (
+    <>
+      {/* SpeedDial Component */}
+      <SpeedDial
+        ariaLabel="SpeedDial example"
+        sx={{ position: 'absolute', bottom: 16, right: 16, zIndex: 9999 }}
+        icon={<SpeedDialIcon />}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+
+        {/* SpeedDialAction that opens a Dialog with Accordion */}
+        <SpeedDialAction
+          key="Accordion"
+          icon={<SettingsIcon />}
+          tooltipTitle="Open Accordion"
+          onClick={handleDialogOpen}
+        />
+      </SpeedDial>
+
+      {/* Dialog with Accordion inside */}
+      <Dialog open={dialogOpen} onClose={handleDialogClose}>
+        <DialogContent>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              Accordion 1
+            </AccordionSummary>
+            <AccordionDetails>
+              Hey hey hello friend
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2-content"
+              id="panel2-header"
+            >
+              Accordion 2
+            </AccordionSummary>
+            <AccordionDetails>
+              Another hello from accordion 2
+            </AccordionDetails>
+          </Accordion>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
+
+//////////////////////////////////
+
+import * as React from 'react';
+import Checkbox from '@mui/material/Checkbox';
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+export default function Checkboxes() {
+  return (
+    <div>
+      <Checkbox {...label} defaultChecked />
+      <Checkbox {...label} />
+      <Checkbox {...label} disabled />
+      <Checkbox {...label} disabled checked />
+    </div>
+  );
+}
+
+////////////////////////////////////////////
+
+const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+
+////////////////////////////////////////////
+ const showTrace = useStore(state => state.showTrace);
+
