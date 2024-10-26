@@ -57,6 +57,12 @@ import RowRadioButtonsGroup from './RowRadioButtonsGroup.jsx';
 
 import { useStore } from './store/useStore.jsx';
 
+import '@fontsource/montserrat/200.css'; // Weight 400
+import '@fontsource/montserrat/300.css'; // Weight 400
+import '@fontsource/montserrat/400.css'; // Weight 400
+import '@fontsource/montserrat/500.css'; // Weight 500
+import '@fontsource/montserrat/700.css'; // Weight 700
+
 const actions = [
   // { icon: <FileCopyIcon />, name: 'Copy' },
   // { icon: <SaveIcon />, name: 'Save'},
@@ -161,7 +167,78 @@ export default function Model() {
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            Saiyuen Bridge
+            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+              Bridge Interaction Instructions
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* <FormControlLabel control={<Checkbox defaultChecked /> } onChange={handleCheckboxChangeBase} label="Base" />
+            <FormControlLabel control={<Checkbox defaultChecked />} onChange={handleCheckboxChangeStructure} label="Structure" /> */}
+            {/* <Typography>Click the floor of the bridge</Typography> */}
+
+            <Card>
+              <CardHeader
+                action={
+                  <IconButton >
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title="Saiyuen"
+                subheader="Bridge"
+              />
+                <CardMedia 
+                    
+                    src="/bridge-01-elements.png"
+                    sx={{ height: 200 }}
+                    
+                  
+                  />
+
+
+                  <CardActions disableSpacing>
+                    {/* <IconButton>
+                      <FavoriteIcon />
+                    </IconButton> */}
+
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      arial-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+
+                  </CardActions>
+
+                  <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      <CardContent>
+                        <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                         - 象徵著過去與未來的連接。
+                        </Typography>
+                      </CardContent>
+                  </Collapse>
+
+            </Card>
+
+
+          </AccordionDetails>
+        </Accordion>
+
+
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+              Hello Friend
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <FormControlLabel control={<Checkbox defaultChecked /> } onChange={handleCheckboxChangeBase} label="Base" />
@@ -176,7 +253,9 @@ export default function Model() {
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            Play video
+            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+              Saiyuen Walkthrough Video
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Card>
@@ -202,9 +281,9 @@ export default function Model() {
 
 
                   <CardActions disableSpacing>
-                    <IconButton>
+                    {/* <IconButton>
                       <FavoriteIcon />
-                    </IconButton>
+                    </IconButton> */}
 
                     <IconButton aria-label="share">
                         <ShareIcon />
