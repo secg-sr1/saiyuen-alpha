@@ -171,181 +171,188 @@ export default function Model() {
         xs:'96%',
         sm:'40%',
         md:'30%',
-        lg:'30%'
+        lg:'30%'},
+        height:650, 
+        zIndex:9999,
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        '&::-webkit-scrollbar': { width: '5px' },
+        '&::-webkit-scrollbar-track': { backgroundColor: 'rgba(0,0,0,0.1)' },
+        '&::-webkit-scrollbar-thumb': { backgroundColor: 'rgba(0,0,0,1)' },
         
-      }, zIndex:9999}}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Saiyuen Bridge Information
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Card>
-              <CardHeader
-                // action={
-                //   <IconButton >
-                //     <MoreVertIcon />
-                //   </IconButton>
-                // }
-                title=""
-                subheader=""
-                sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}
-              />
+        }}>
+        
+
+        
+
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+                Saiyuen Bridge Information
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Card sx={{borderRadius:5, boxShadow:5}}>
+                <CardHeader
+                  // action={
+                  //   <IconButton >
+                  //     <MoreVertIcon />
+                  //   </IconButton>
+                  // }
+                  title=""
+                  subheader=""
+                  sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}
+                />
 
 
-                {
-                  chipClickVisualization && 
-                    <CardMedia 
-                    component="img"
-                    src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02-elements.png?raw=true"
-                    sx={{ height: 200 }}
-                    />
-                }
+                  {
+                    chipClickVisualization && 
+                      <CardMedia 
+                      component="img"
+                      src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02-elements.png?raw=true"
+                      sx={{ height: 200 }}
+                      />
+                  }
 
-                
-
-                {
-                  chipClickInstructions && 
-                    <CardMedia 
-                    component="img"
-                    src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=980&q=75"
-                    sx={{ height: 200 }}
-                    />
-                }
-
-
-
-
-
-
-                  <CardActions disableSpacing>
-                    {/* <IconButton>
-                      <FavoriteIcon />
-                    </IconButton> */}
-
-                    {/* <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton> */}
-
-                    <Stack direction="row">
-                        <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#B2BEB5" : "#E5E4E2" }}/>
-                        <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#B2BEB5" : "#E5E4E2"}}/>
-                    </Stack>
-
-                    <ExpandMore
-                      expand={expanded}
-                      onClick={handleExpandClick}
-                      aria-expanded={expanded}
-                      arial-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </ExpandMore>
-
-                  </CardActions>
-
-                  <Collapse in={expanded} timeout="auto" unmountOnExit>
-                      <CardContent>
-                        <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
-                         - 象徵著過去與未來的連接。
-                        </Typography>
-                      </CardContent>
-                  </Collapse>
-
-            </Card>
-
-
-          </AccordionDetails>
-        </Accordion>
-
-
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Saiyuen Bridge Elements
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <FormControlLabel control={<Checkbox defaultChecked color='#000000' /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
-            <FormControlLabel control={<Checkbox defaultChecked color='#000000' />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
-            {/* <Typography>Click the floor of the bridge</Typography> */}
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Saiyuen Bridge Video
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Card>
-              <CardHeader
-                // action={
-                //   <IconButton >
-                //     <MoreVertIcon />
-                //   </IconButton>
-                // }
-                // title="Saiyuen"
-                subheader=""
-              />
-                <CardMedia 
-                    component="iframe"
-                    src="https://www.youtube.com/embed/4FOmQkFgicQ?si=wVke1zASp0fnVN3K"
-                    title="YouTube video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    sx={{ height: 220 }}
-                    autoplay
                   
-                  />
+
+                  {
+                    chipClickInstructions && 
+                      <CardMedia 
+                      component="img"
+                      src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=980&q=75"
+                      sx={{ height: 200 }}
+                      />
+                  }
+
+                    <CardActions disableSpacing>
+                      {/* <IconButton>
+                        <FavoriteIcon />
+                      </IconButton> */}
+
+                      {/* <IconButton aria-label="share">
+                          <ShareIcon />
+                      </IconButton> */}
+
+                      <Stack direction="row">
+                          <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#B2BEB5" : "#E5E4E2" }}/>
+                          <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#B2BEB5" : "#E5E4E2"}}/>
+                      </Stack>
+
+                      <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        arial-label="show more"
+                      >
+                        <ExpandMoreIcon />
+                      </ExpandMore>
+
+                    </CardActions>
+
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                        <CardContent>
+                          <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                          - 象徵著過去與未來的連接。
+                          </Typography>
+                        </CardContent>
+                    </Collapse>
+
+              </Card>
 
 
-                  <CardActions disableSpacing>
-                    {/* <IconButton>
-                      <FavoriteIcon />
-                    </IconButton> */}
+            </AccordionDetails>
+          </Accordion>
 
-                    <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton>
 
-                    <ExpandMore
-                      expand={expanded}
-                      onClick={handleExpandClick}
-                      aria-expanded={expanded}
-                      arial-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </ExpandMore>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+                Saiyuen Bridge Elements
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControlLabel control={<Checkbox defaultChecked color='#000000' /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+              <FormControlLabel control={<Checkbox defaultChecked color='#000000' />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+              {/* <Typography>Click the floor of the bridge</Typography> */}
+            </AccordionDetails>
+          </Accordion>
 
-                  </CardActions>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
+                Saiyuen Bridge Video
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Card sx={{borderRadius:5, boxShadow:5}}>
+                <CardHeader
+                  // action={
+                  //   <IconButton >
+                  //     <MoreVertIcon />
+                  //   </IconButton>
+                  // }
+                  // title="Saiyuen"
+                  subheader=""
+                />
+                  <CardMedia 
+                      component="iframe"
+                      src="https://www.youtube.com/embed/4FOmQkFgicQ?si=wVke1zASp0fnVN3K"
+                      title="YouTube video"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      sx={{ height: 220 }}
+                      autoplay
+                    
+                    />
 
-                  <Collapse in={expanded} timeout="auto" unmountOnExit>
-                      <CardContent>
-                        <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
-                         - 象徵著過去與未來的連接。
-                        </Typography>
-                      </CardContent>
-                  </Collapse>
 
-            </Card>
-          </AccordionDetails>
-        </Accordion>
+                    <CardActions disableSpacing>
+                      {/* <IconButton>
+                        <FavoriteIcon />
+                      </IconButton> */}
 
-      </Box>
+                      <IconButton aria-label="share">
+                          <ShareIcon />
+                      </IconButton>
+
+                      <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        arial-label="show more"
+                      >
+                        <ExpandMoreIcon />
+                      </ExpandMore>
+
+                    </CardActions>
+
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                        <CardContent>
+                          <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                          - 象徵著過去與未來的連接。
+                          </Typography>
+                        </CardContent>
+                    </Collapse>
+
+              </Card>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+
+      
 
       {/* < SpeedDialWithAccordion/> */}
 
