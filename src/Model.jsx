@@ -202,7 +202,7 @@ export default function Model() {
                   chipClickVisualization && 
                     <CardMedia 
                     component="img"
-                    src="bridge-02-elements.png"
+                    src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02-elements.png?raw=true"
                     sx={{ height: 200 }}
                     />
                 }
@@ -233,8 +233,8 @@ export default function Model() {
                     </IconButton> */}
 
                     <Stack direction="row">
-                        <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400}}/>
-                        <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400}}/>
+                        <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#B2BEB5" : "#E5E4E2" }}/>
+                        <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#B2BEB5" : "#E5E4E2"}}/>
                     </Stack>
 
                     <ExpandMore
@@ -287,19 +287,19 @@ export default function Model() {
             id="panel1-header"
           >
             <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Saiyuen Walkthrough Video
+              Saiyuen Bridge Video
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Card>
               <CardHeader
-                action={
-                  <IconButton >
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Saiyuen"
-                subheader="Bridge"
+                // action={
+                //   <IconButton >
+                //     <MoreVertIcon />
+                //   </IconButton>
+                // }
+                // title="Saiyuen"
+                subheader=""
               />
                 <CardMedia 
                     component="iframe"
@@ -307,7 +307,7 @@ export default function Model() {
                     title="YouTube video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    sx={{ height: 200 }}
+                    sx={{ height: 220 }}
                     autoplay
                   
                   />
