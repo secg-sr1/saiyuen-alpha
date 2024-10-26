@@ -124,7 +124,7 @@ export default function Scene() {
       <directionalLight position={[1, 1, 1]} intensity={1.5} />
       <ambientLight intensity={0.5} />
 
-      { showBase && <primitive object={gltf.scene} scale={[0.2, 0.2, 0.2]} onPointerDown={handleBridgeClick} /> }
+      { showBase && <primitive object={gltf.scene} scale={[0.2, 0.2, 0.2]} /> }
       { showBase && <primitive object={gltfHandrail.scene} scale={[0.2, 0.2, 0.2]} /> }
       { showStructure && <primitive object={gltfBridge.scene} scale={[0.2, 0.2, 0.2]} />}
 

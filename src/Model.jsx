@@ -105,6 +105,9 @@ export default function Model() {
   const setShowStructure = useStore(state => state.setShowStructure)
   const [expanded, setExpanded ] = useState(false);
 
+  const [ chipClickVisualization, setChipClickVisualization ] = useState(true);
+  const [ chipClickInstructions, setChipClickInstructions ] = useState(false);
+
   const handleCheckboxChangeBase = (event) => {
     setShowBase(event.target.checked)
   }
@@ -116,6 +119,16 @@ export default function Model() {
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  }
+
+  const handleChipClickVisualization = () => {
+    setChipClickVisualization(true);
+    setChipClickInstructions(false);
+  }
+
+  const handleChipClickInstructions = () => {
+    setChipClickVisualization(false);
+    setChipClickInstructions(true);
   }
 
 
@@ -168,31 +181,46 @@ export default function Model() {
             id="panel1-header"
           >
             <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Bridge Interaction Instructions
+              Saiyuen Bridge Information
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <FormControlLabel control={<Checkbox defaultChecked /> } onChange={handleCheckboxChangeBase} label="Base" />
-            <FormControlLabel control={<Checkbox defaultChecked />} onChange={handleCheckboxChangeStructure} label="Structure" /> */}
-            {/* <Typography>Click the floor of the bridge</Typography> */}
-
             <Card>
               <CardHeader
-                action={
-                  <IconButton >
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Saiyuen"
-                subheader="Bridge"
+                // action={
+                //   <IconButton >
+                //     <MoreVertIcon />
+                //   </IconButton>
+                // }
+                title=""
+                subheader=""
+                sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}
               />
-                <CardMedia 
-                    
-                    src="/bridge-01-elements.png"
+
+
+                {
+                  chipClickVisualization && 
+                    <CardMedia 
+                    component="img"
+                    src="bridge-02-elements.png"
                     sx={{ height: 200 }}
-                    
-                  
-                  />
+                    />
+                }
+
+                
+
+                {
+                  chipClickInstructions && 
+                    <CardMedia 
+                    component="img"
+                    src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=980&q=75"
+                    sx={{ height: 200 }}
+                    />
+                }
+
+
+
+
 
 
                   <CardActions disableSpacing>
@@ -200,9 +228,14 @@ export default function Model() {
                       <FavoriteIcon />
                     </IconButton> */}
 
-                    <IconButton aria-label="share">
+                    {/* <IconButton aria-label="share">
                         <ShareIcon />
-                    </IconButton>
+                    </IconButton> */}
+
+                    <Stack direction="row">
+                        <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400}}/>
+                        <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400}}/>
+                    </Stack>
 
                     <ExpandMore
                       expand={expanded}
@@ -237,12 +270,12 @@ export default function Model() {
             id="panel1-header"
           >
             <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
-              Hello Friend
+              Saiyuen Bridge Elements
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <FormControlLabel control={<Checkbox defaultChecked /> } onChange={handleCheckboxChangeBase} label="Base" />
-            <FormControlLabel control={<Checkbox defaultChecked />} onChange={handleCheckboxChangeStructure} label="Structure" />
+            <FormControlLabel control={<Checkbox defaultChecked color='#000000' /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+            <FormControlLabel control={<Checkbox defaultChecked color='#000000' />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
             {/* <Typography>Click the floor of the bridge</Typography> */}
           </AccordionDetails>
         </Accordion>
