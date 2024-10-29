@@ -22,6 +22,7 @@ import { Card,
         Button  
     } from '@mui/material';
 
+import * as THREE from 'three';
 
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -35,6 +36,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import { useStore } from './store/useStore';
+import { metalness, roughness } from 'three/webgpu';
 
 
 const ExpandMore = styled((props) => {
@@ -98,8 +100,8 @@ export default function Scene() {
   const [ showCard, setShowCard ] = useState(false);
   const [expanded, setExpanded ] = useState(false);
 
-  const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base-00.glb?v=1730221468915');
-  const gltfBridge = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-structure-00.glb?v=1730221482758');
+  const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base-02.glb?v=1730234003023');
+  const gltfBridge = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-structure-02.glb?v=1730233993841');
   // const gltfHandrail = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-handrail.glb?v=1729900147243');
 
   
@@ -150,7 +152,29 @@ export default function Scene() {
 
       { showBase && <primitive object={gltf.scene} scale={[0.2, 0.2, 0.2]} /> }
       {/* { showBase && <primitive object={gltfHandrail.scene} scale={[0.2, 0.2, 0.2]} /> } */}
-      { showStructure && <primitive object={gltfBridge.scene} scale={[0.2, 0.2, 0.2]} />}
+      { showStructure && <primitive
+              object={gltfBridge.scene} 
+              scale={[0.2, 0.2, 0.2]} 
+              // onUpdate={(self) => {
+              //   self.traverse((child) => {
+              //     child.material = new THREE.MeshBasicMaterial({
+              //       side: THREE.DoubleSide,
+              //       color: 'red',
+              //       emissive: 'red',
+              //       emissiveIntensity: 0.1,
+              //       shininess: 30,
+              //       metalness: 0,
+              //       roughness:0.1,
+              //       fog:true
+              //     });
+              //     child.material.transparent = true; 
+              //     child.material.opacity = 0.98; 
+              //     child.material.depthTest = true;
+              //     child.material.depthWrite = true; 
+              //   })
+              // }}
+              
+              />}
 
 
       {/* <mesh position={[0, 0.5, -1]} onPointerDown={handleSphereClick}>
