@@ -47,8 +47,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { useStore } from './store/useStore.jsx';
+
 
 import '@fontsource/montserrat/200.css'; // Weight 400
 import '@fontsource/montserrat/300.css'; // Weight 400
@@ -91,12 +93,17 @@ const ExpandMore = styled((props) => {
 }))
 
 
+
+
+
+
 export default function Model() {
 
   const setShowBase = useStore(state => state.setShowBase)
   const setShowStructure = useStore(state => state.setShowStructure)
   const [expanded, setExpanded ] = useState(false);
   const [ showAccordion, setShowAccordion ] = useState(false);
+  const [ hideAccordion, setHideAccordion ] = useState(true)
 
   const [ chipClickVisualization, setChipClickVisualization ] = useState(true);
   const [ chipClickInstructions, setChipClickInstructions ] = useState(false);
@@ -126,7 +133,11 @@ export default function Model() {
 
 
   const handleClickShowAccordion = () => {
-    setShowAccordion(!showAccordion)
+    setShowAccordion(true)
+  }
+
+  const handleClickHideAccordion = () => {
+    setShowAccordion(false)
   }
 
 
@@ -167,9 +178,15 @@ export default function Model() {
 
         <Stack direction="row" spacing={1} sx={{position: 'absolute', bottom:8, right:16, zIndex:999}}>
           <Tooltip title="Bridge Info" placement='left'>
+            {!showAccordion && 
             <IconButton sx={{color:'white'}} onClick={handleClickShowAccordion}>
-              <AddCircleIcon  fontSize='large'/>
+               <AddCircleIcon  fontSize='large'/>
+            </IconButton> }
+            {showAccordion && 
+            <IconButton>
+              <RemoveCircleIcon sx={{color:'white'}} fontSize='large' onClick={handleClickHideAccordion}/>
             </IconButton>
+            }
           </Tooltip>
         </Stack>
 
@@ -192,18 +209,19 @@ export default function Model() {
           
           }}>
           
-            <Accordion>
+            <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}} />}
                 aria-controls="panel1-content"
                 id="panel1-header"
+                
               >
                 <Typography sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}}>
                   Saiyuen Bridge Information
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Card sx={{borderRadius:5, boxShadow:5}}>
+                <Card sx={{borderRadius:5, boxShadow:5, backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)'}}>
                   <CardHeader
                     title=""
                     subheader=""
@@ -234,8 +252,8 @@ export default function Model() {
                       <CardActions disableSpacing>
                         
                         <Stack direction="row">
-                            <Chip label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#B2BEB5" : "#E5E4E2" }}/>
-                            <Chip label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#B2BEB5" : "#E5E4E2"}}/>
+                            <Chip variant='outlined' label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
+                            <Chip variant='outlined' label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#5a5a5a" : "#282828", color:'#FFFFFF'}}/>
                         </Stack>
   
                         <ExpandMore
@@ -244,14 +262,14 @@ export default function Model() {
                           aria-expanded={expanded}
                           arial-label="show more"
                         >
-                          <ExpandMoreIcon />
+                          <ExpandMoreIcon sx={{color:'#FFFFFF'}}/>
                         </ExpandMore>
   
                       </CardActions>
   
                       <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
-                            <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                            <Typography sx={{ fontWeight:200, fontSize:"16px", color:'#FFFFFF'}}>
                             - 象徵著過去與未來的連接。
                             </Typography>
                           </CardContent>
@@ -262,9 +280,9 @@ export default function Model() {
               </AccordionDetails>
             </Accordion>
   
-            <Accordion>
+            <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}}/>}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
@@ -273,15 +291,15 @@ export default function Model() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <FormControlLabel control={<Checkbox defaultChecked color='#000000' /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
-                <FormControlLabel control={<Checkbox defaultChecked color='#000000' />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+                <FormControlLabel control={<Checkbox defaultChecked sx={{color:'#FFFFFF'}} /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+                <FormControlLabel control={<Checkbox defaultChecked sx={{color:'#FFFFFF'}} />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
                 {/* <Typography>Click the floor of the bridge</Typography> */}
               </AccordionDetails>
             </Accordion>
   
-            <Accordion>
+            <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}} />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
@@ -290,7 +308,7 @@ export default function Model() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Card sx={{borderRadius:5, boxShadow:5}}>
+                <Card sx={{borderRadius:5, boxShadow:5, backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)'}}>
                   <CardHeader
                     // action={
                     //   <IconButton >
@@ -306,8 +324,9 @@ export default function Model() {
                         title="YouTube video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                        sx={{ height: 220 }}
+                        sx={{ height: 220, borderColor:'#000000' }}
                         autoplay
+                        
                       
                       />
   
@@ -318,7 +337,7 @@ export default function Model() {
                         </IconButton> */}
   
                         <IconButton aria-label="share">
-                            <ShareIcon />
+                            <ShareIcon sx={{color:'#FFFFFF'}} />
                         </IconButton>
   
                         <ExpandMore
@@ -327,14 +346,14 @@ export default function Model() {
                           aria-expanded={expanded}
                           arial-label="show more"
                         >
-                          <ExpandMoreIcon />
+                          <ExpandMoreIcon sx={{color:'#FFFFFF'}} />
                         </ExpandMore>
   
                       </CardActions>
   
                       <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
-                            <Typography sx={{ fontWeight:200, fontSize:"16px"}}>
+                            <Typography sx={{ fontWeight:200, fontSize:"16px", color:'#FFFFFF'}}>
                             - 象徵著過去與未來的連接。
                             </Typography>
                           </CardContent>

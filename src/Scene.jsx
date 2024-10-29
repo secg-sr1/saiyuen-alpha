@@ -2,7 +2,7 @@
 import  { styled } from '@mui/material/styles';
 import { useEffect, useRef, useState } from 'react';
 import { useLoader } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Html } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Html, useAnimations, useGLTF } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import { Card, 
@@ -37,7 +37,6 @@ import '@fontsource/roboto/700.css';
 import { useStore } from './store/useStore';
 
 
-
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props; 
   return <IconButton {...other} />
@@ -65,6 +64,28 @@ const ExpandMore = styled((props) => {
 }))
 
 
+function MixamoCharacter() {
+
+  const group = useRef();
+  const  { scene, animations } = useGLTF('https://cdn.glitch.me/610da9c5-d3d9-48be-83b9-3836bdc195cb/human-dancing-00.glb?v=1730078741389');
+  
+  const { actions }  = useAnimations(animations, group);
+
+  useEffect(() => {
+    if (actions && actions['AnimationName']){
+      actions['AnimationName'].play(); 
+    }
+  }, [actions]);
+
+  return <primitive ref={group} object={scene} scale={[0.02,0.02,0.02]} />
+
+
+
+}
+
+
+
+
 
 
 export default function Scene() {
@@ -80,6 +101,8 @@ export default function Scene() {
   const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base.glb?v=1729731166335');
   const gltfBridge = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-structure.glb?v=1729731146544');
   const gltfHandrail = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-handrail.glb?v=1729900147243');
+
+  
 
 
 
@@ -120,6 +143,7 @@ export default function Scene() {
     <>
       <PerspectiveCamera ref={cameraRef} />
       <OrbitControls makeDefault />
+      
 
       <directionalLight position={[1, 1, 1]} intensity={1.5} />
       <ambientLight intensity={0.5} />
@@ -151,6 +175,7 @@ export default function Scene() {
               padding: 1,
               borderRadius: 3,
               opacity:0.9
+              
             }}
           >
             <Card sx={{width: 350, boxShadow:3}}>
