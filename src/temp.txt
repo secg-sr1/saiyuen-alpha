@@ -441,3 +441,59 @@ export default function ClickableChips() {
   );
 }
 
+
+
+///
+
+
+return (
+  <>
+    <PerspectiveCamera ref={cameraRef} />
+    <OrbitControls makeDefault />
+
+    <directionalLight position={[1, 1, 1]} intensity={1.5} />
+    <ambientLight intensity={0.5} />
+
+    { showBase && (
+      <primitive
+        object={gltf.scene}
+        scale={[0.2, 0.2, 0.2]}
+        onUpdate={(self) => {
+          self.traverse((child) => {
+            if (child.isMesh) {
+              child.material = new THREE.MeshStandardMaterial({
+                color: 'skyblue',
+                metalness: 0.5,
+                roughness: 0.4,
+              });
+              child.material.transparent = true;
+              child.material.opacity = 0.9;
+            }
+          });
+        }}
+      />
+    )}
+    
+    { showStructure && (
+      <primitive
+        object={gltfBridge.scene}
+        scale={[0.2, 0.2, 0.2]}
+        onUpdate={(self) => {
+          self.traverse((child) => {
+            if (child.isMesh) {
+              child.material = new THREE.MeshStandardMaterial({
+                color: 'green',
+                metalness: 0.6,
+                roughness: 0.3,
+              });
+              child.material.transparent = true;
+              child.material.opacity = 0.9;
+            }
+          });
+        }}
+      />
+    )}
+
+    {/* Other elements */}
+  </>
+);

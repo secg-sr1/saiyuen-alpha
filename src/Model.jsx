@@ -105,7 +105,8 @@ export default function Model() {
   const [ showAccordion, setShowAccordion ] = useState(false);
   const [ hideAccordion, setHideAccordion ] = useState(true)
 
-  const [ chipClickVisualization, setChipClickVisualization ] = useState(true);
+  const [ chipClickVisualizationA, setChipClickVisualizationA ] = useState(true);
+  const [ chipClickVisualizationB, setChipClickVisualizationB ] = useState(false);
   const [ chipClickInstructions, setChipClickInstructions ] = useState(false);
 
   const handleCheckboxChangeBase = (event) => {
@@ -121,13 +122,21 @@ export default function Model() {
     setExpanded(!expanded);
   }
 
-  const handleChipClickVisualization = () => {
-    setChipClickVisualization(true);
+  const handleChipClickVisualizationA = () => {
+    setChipClickVisualizationA(true);
+    setChipClickVisualizationB(false);
+    setChipClickInstructions(false);
+  }
+
+  const handleChipClickVisualizationB = () => {
+    setChipClickVisualizationA(false);
+    setChipClickVisualizationB(true)
     setChipClickInstructions(false);
   }
 
   const handleChipClickInstructions = () => {
-    setChipClickVisualization(false);
+    setChipClickVisualizationA(false);
+    setChipClickVisualizationB(false);
     setChipClickInstructions(true);
   }
 
@@ -230,10 +239,20 @@ export default function Model() {
   
   
                     {
-                      chipClickVisualization && 
+                      chipClickVisualizationA && 
                         <CardMedia 
                         component="img"
                         src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02-elements.png?raw=true"
+                        sx={{ height: 200 }}
+                        />
+                    }
+
+
+                    {
+                      chipClickVisualizationB && 
+                        <CardMedia 
+                        component="img"
+                        src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=780&q=75"
                         sx={{ height: 200 }}
                         />
                     }
@@ -252,7 +271,9 @@ export default function Model() {
                       <CardActions disableSpacing>
                         
                         <Stack direction="row">
-                            <Chip variant='outlined' label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
+                            {/* <Chip variant='outlined' label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/> */}
+                            <Chip variant='outlined' label="visualization-01" onClick={handleChipClickVisualizationA} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationA ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
+                            <Chip variant='outlined' label="visualization-02" onClick={handleChipClickVisualizationB} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationB ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
                             <Chip variant='outlined' label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#5a5a5a" : "#282828", color:'#FFFFFF'}}/>
                         </Stack>
   
