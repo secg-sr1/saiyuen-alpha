@@ -220,7 +220,7 @@ export default function Model() {
           
             <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}} />}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF', transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.3s ease',}}  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
                 
@@ -252,7 +252,7 @@ export default function Model() {
                       chipClickVisualizationB && 
                         <CardMedia 
                         component="img"
-                        src="https://townsquare.media/site/366/files/2014/11/Tool.jpg?w=780&q=75"
+                        src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-01-visualization-02.png?raw=true"
                         sx={{ height: 200 }}
                         />
                     }
@@ -272,29 +272,29 @@ export default function Model() {
                         
                         <Stack direction="row">
                             {/* <Chip variant='outlined' label="visualization" onClick={handleChipClickVisualization} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualization ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/> */}
-                            <Chip variant='outlined' label="visualization-01" onClick={handleChipClickVisualizationA} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationA ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
-                            <Chip variant='outlined' label="visualization-02" onClick={handleChipClickVisualizationB} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationB ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
+                            <Chip variant='outlined' label="visualization01" onClick={handleChipClickVisualizationA} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationA ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
+                            <Chip variant='outlined' label="visualization02" onClick={handleChipClickVisualizationB} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickVisualizationB ? "#5a5a5a" : "#282828", color:'#FFFFFF' }}/>
                             <Chip variant='outlined' label="instructions" onClick={handleChipClickInstructions} sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:400, backgroundColor: chipClickInstructions ? "#5a5a5a" : "#282828", color:'#FFFFFF'}}/>
                         </Stack>
   
-                        <ExpandMore
+                        {/* <ExpandMore
                           expand={expanded}
                           onClick={handleExpandClick}
                           aria-expanded={expanded}
                           arial-label="show more"
                         >
                           <ExpandMoreIcon sx={{color:'#FFFFFF'}}/>
-                        </ExpandMore>
+                        </ExpandMore> */}
   
                       </CardActions>
   
-                      <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
                             <Typography sx={{ fontWeight:200, fontSize:"16px", color:'#FFFFFF'}}>
                             - 象徵著過去與未來的連接。
                             </Typography>
                           </CardContent>
-                      </Collapse>
+                      </Collapse> */}
   
                 </Card>
   
@@ -303,7 +303,7 @@ export default function Model() {
   
             <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}}/>}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF', transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.3s ease',}}  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
@@ -320,7 +320,7 @@ export default function Model() {
   
             <Accordion sx={{backgroundColor:'transparent', border:'1px solid rgba(255, 255, 255, 0.2)', color:'#FFFFFF'}}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF'}} />}
+                expandIcon={<ExpandMoreIcon sx={{color:'#FFFFFF', transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.3s ease',}} />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
@@ -341,12 +341,17 @@ export default function Model() {
                   />
                     <CardMedia 
                         component="iframe"
-                        src="https://www.youtube.com/embed/4FOmQkFgicQ?si=wVke1zASp0fnVN3K"
-                        title="YouTube video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        sx={{ height: 220, borderColor:'#000000' }}
+                        src="/saiyuen-alpha/bridge-01-vid-00-post.mp4 "
                         autoplay
+                        loop 
+                        controls={false}
+                        muted
+                        title="YouTube video"
+                        // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        // allowFullScreen
+                        sx={{ height: 220, borderColor:'#000000' }}
+                        
+                        
                         
                       
                       />
@@ -361,24 +366,24 @@ export default function Model() {
                             <ShareIcon sx={{color:'#FFFFFF'}} />
                         </IconButton>
   
-                        <ExpandMore
+                        {/* <ExpandMore
                           expand={expanded}
                           onClick={handleExpandClick}
                           aria-expanded={expanded}
                           arial-label="show more"
                         >
                           <ExpandMoreIcon sx={{color:'#FFFFFF'}} />
-                        </ExpandMore>
+                        </ExpandMore> */}
   
                       </CardActions>
   
-                      <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
                             <Typography sx={{ fontWeight:200, fontSize:"16px", color:'#FFFFFF'}}>
                             - 象徵著過去與未來的連接。
                             </Typography>
                           </CardContent>
-                      </Collapse>
+                      </Collapse> */}
   
                 </Card>
               </AccordionDetails>
