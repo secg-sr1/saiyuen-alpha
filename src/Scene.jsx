@@ -100,7 +100,7 @@ export default function Scene() {
   const [ showCard, setShowCard ] = useState(false);
   const [expanded, setExpanded ] = useState(false);
 
-  const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base-02.glb?v=1730234003023');
+  const gltf = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-base-02.glb?v=1730656013161');
   const gltfBridge = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-structure-02.glb?v=1730233993841');
   // const gltfHandrail = useLoader(GLTFLoader, 'https://cdn.glitch.global/610da9c5-d3d9-48be-83b9-3836bdc195cb/bidge-01-handrail.glb?v=1729900147243');
 
