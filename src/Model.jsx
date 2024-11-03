@@ -242,7 +242,7 @@ export default function Model() {
                       chipClickVisualizationA && 
                         <CardMedia 
                         component="img"
-                        src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-02-elements.png?raw=true"
+                        src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/brige-01-render-00.png?raw=true"
                         sx={{ height: 200 }}
                         />
                     }
@@ -252,7 +252,7 @@ export default function Model() {
                       chipClickVisualizationB && 
                         <CardMedia 
                         component="img"
-                        src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/bridge-01-visualization-02.png?raw=true"
+                        src="https://github.com/secg-sr1/saiyuen-alpha/blob/main/public/brige-01-render-01.png?raw=true"
                         sx={{ height: 200 }}
                         />
                     }
@@ -312,8 +312,8 @@ export default function Model() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <FormControlLabel control={<Checkbox defaultChecked sx={{color:'#FFFFFF'}} /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
-                <FormControlLabel control={<Checkbox defaultChecked sx={{color:'#FFFFFF'}} />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+                <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FFFFFF', '&.Mui-checked': { color: '#FFFFFF',},}} /> } onChange={handleCheckboxChangeBase} label="Base" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
+                <FormControlLabel control={<Checkbox defaultChecked sx={{ color: '#FFFFFF', '&.Mui-checked': { color: '#FFFFFF',},}} />} onChange={handleCheckboxChangeStructure} label="Structure" sx={{fontFamily:'Montserrat, Arial, sans-serif', fontWeight:300}} />
                 {/* <Typography>Click the floor of the bridge</Typography> */}
               </AccordionDetails>
             </Accordion>
@@ -340,20 +340,13 @@ export default function Model() {
                     subheader=""
                   />
                     <CardMedia 
-                        component="iframe"
-                        src="/saiyuen-alpha/bridge-01-vid-00-post.mp4 "
-                        autoplay
-                        loop 
-                        controls={false}
+                        component="video"
+                        src="/saiyuen-alpha/bridge-01-vid-00-post.mp4"
+                        autoPlay
+                        loop
                         muted
-                        title="YouTube video"
-                        // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        // allowFullScreen
-                        sx={{ height: 220, borderColor:'#000000' }}
-                        
-                        
-                        
-                      
+                        controls={false}
+                        title="video"
                       />
   
   
