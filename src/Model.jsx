@@ -148,6 +148,16 @@ export default function Model() {
   const handleClickHideAccordion = () => {
     setShowAccordion(false)
   }
+  
+  const handleShareInstagram =  () => {
+    const shareText = `${window.location.href}`;
+    navigator.clipboard.writeText(shareText).then(() => {
+      alert('Link copied. You can share Saiyen Experience');
+    }).catch((error) => {
+      console.error('Error copying text:', error);
+      alert('Could not copy text, please try again');
+    })
+  }
 
 
 
@@ -341,7 +351,7 @@ export default function Model() {
                   />
                     <CardMedia 
                         component="video"
-                        src="/saiyuen-alpha/bridge-01-vid-00-post.mp4"
+                        src="/saiyuen-alpha/bridge-01-vid-01-post.mp4"
                         autoPlay
                         loop
                         muted
@@ -354,10 +364,12 @@ export default function Model() {
                         {/* <IconButton>
                           <FavoriteIcon />
                         </IconButton> */}
-  
-                        <IconButton aria-label="share">
-                            <ShareIcon sx={{color:'#FFFFFF'}} />
-                        </IconButton>
+
+                        <Tooltip title="Share Saiyuen" placement='left'>
+                          <IconButton aria-label="share" onClick={handleShareInstagram}>
+                              <ShareIcon sx={{color:'#FFFFFF'}} />
+                          </IconButton>
+                        </Tooltip>
   
                         {/* <ExpandMore
                           expand={expanded}
