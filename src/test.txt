@@ -327,3 +327,21 @@ const handleCheckboxChange = (event) => {
 ////////////////////////////////////////////
  const showTrace = useStore(state => state.showTrace);
 
+/////////////////////////////////////
+
+import { IconButton } from '@mui/material';
+import ShareIcon from '@mui/icons-material/Share';
+
+const handleShareInstagram = () => {
+  const shareText = `Check out this page: ${window.location.href}`;
+  navigator.clipboard.writeText(shareText).then(() => {
+    alert('Link copied to clipboard. You can now share it on Instagram.');
+  }).catch((error) => {
+    console.error('Error copying text:', error);
+    alert('Could not copy text, please try again.');
+  });
+};
+
+<IconButton aria-label="share" onClick={handleShareInstagram}>
+  <ShareIcon sx={{ color: '#FFFFFF' }} />
+</IconButton>

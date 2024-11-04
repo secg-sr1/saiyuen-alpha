@@ -352,10 +352,10 @@ export default function Model() {
                     <CardMedia 
                         component="video"
                         src="/saiyuen-alpha/bridge-01-vid-01-post.mp4"
-                        autoPlay
+                        // autoPlay
                         loop
                         muted
-                        controls={false}
+                        controls={true}
                         title="video"
                       />
   
