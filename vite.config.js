@@ -9,5 +9,6 @@ export default defineConfig({
     react(),
     topLevelAwait(),
   ],
-  base: '/saiyuen-alpha',
+  // base: '/saiyuen-alpha/',
+  base: '/',
 })
